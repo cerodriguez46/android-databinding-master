@@ -54,6 +54,7 @@ class PlainOldActivity : AppCompatActivity() {
      * This method is triggered by the `android:onclick` attribute in the layout. It puts business
      * logic in the activity, which is not ideal. We should do something about that.
      */
+    //method increments the amount of likes
     fun onLike(view: View) {
         viewModel.onLike()
         updateLikes()
