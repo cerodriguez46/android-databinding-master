@@ -19,6 +19,7 @@ package com.example.android.databinding.basicsample.ui
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.res.ColorStateList
+import android.databinding.DataBindingUtil
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -31,6 +32,7 @@ import android.widget.TextView
 import com.example.android.databinding.basicsample.R
 import com.example.android.databinding.basicsample.data.Popularity
 import com.example.android.databinding.basicsample.data.SimpleViewModel
+import com.example.android.databinding.basicsample.databinding.PlainActivityBinding
 
 /**
  * Plain old activity with lots of problems to fix.
@@ -43,10 +45,15 @@ class PlainOldActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.plain_activity)
+        //replace setContentView with binding object and reference binding class
+        val binding: PlainActivityBinding =
+                DataBindingUtil.setContentView(this, R.layout.plain_activity)
+
+        binding.name = "Your name"
+        binding.lastName = "Your last name"
 
         // TODO: Explicitly setting initial values is a bad pattern. We'll fix that.
-        updateName()
+        //removed update name method since its not needed with binding
         updateLikes()
     }
 
@@ -63,10 +70,7 @@ class PlainOldActivity : AppCompatActivity() {
     /**
      * So much findViewById! We'll fix that with Data Binding.
      */
-    private fun updateName() {
-        findViewById<TextView>(R.id.plain_name).text = viewModel.name
-        findViewById<TextView>(R.id.plain_lastname).text = viewModel.lastName
-    }
+    //find view by ids gone now because binding has been implemented
 
     /**
      * This method has many problems:
