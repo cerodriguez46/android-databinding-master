@@ -28,6 +28,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import com.example.android.databinding.basicsample.R
 import com.example.android.databinding.basicsample.data.Popularity
+import com.example.android.databinding.basicsample.data.SimpleViewModel
 
 object BindingAdapters {
     /**
@@ -36,7 +37,7 @@ object BindingAdapters {
      */
     @BindingAdapter("app:popularityIcon")
     @JvmStatic
-    fun popularityIcon(view: ImageView, popularity: Popularity) {
+    fun popularityIcon(view: ImageView, popularity: SimpleViewModel.Popularity) {
 
         val color = getAssociatedColor(popularity, view.context)
 
@@ -51,7 +52,7 @@ object BindingAdapters {
      */
     @BindingAdapter("app:progressTint")
     @JvmStatic
-    fun tintPopularity(view: ProgressBar, popularity: Popularity) {
+    fun tintPopularity(view: ProgressBar, popularity: SimpleViewModel.Popularity) {
 
         val color = getAssociatedColor(popularity, view.context)
 
@@ -82,13 +83,13 @@ object BindingAdapters {
         view.visibility = if (number == 0) View.GONE else View.VISIBLE
     }
 
-    private fun getAssociatedColor(popularity: Popularity, context: Context): Int {
+    private fun getAssociatedColor(popularity: SimpleViewModel.Popularity, context: Context): Int {
         return when (popularity) {
-            Popularity.NORMAL -> context.theme.obtainStyledAttributes(
+            SimpleViewModel.Popularity.NORMAL -> context.theme.obtainStyledAttributes(
                 intArrayOf(android.R.attr.colorForeground)
             ).getColor(0, 0x000000)
-            Popularity.POPULAR -> ContextCompat.getColor(context, R.color.popular)
-            Popularity.STAR -> ContextCompat.getColor(context, R.color.star)
+            SimpleViewModel.Popularity.POPULAR -> ContextCompat.getColor(context, R.color.popular)
+            SimpleViewModel.Popularity.STAR -> ContextCompat.getColor(context, R.color.star)
         }
     }
 
