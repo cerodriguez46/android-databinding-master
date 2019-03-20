@@ -141,6 +141,7 @@
             app:hideIfZero="@{viewmodel.likes}"
             app:progressScaled="@{viewmodel.likes}"
             android:max="@{100}"
+            app:progressTint="@{viewmodel.likes}"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
