@@ -25,7 +25,6 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.ImageViewCompat
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -49,8 +48,7 @@ class PlainOldActivity : AppCompatActivity() {
         val binding: PlainActivityBinding =
                 DataBindingUtil.setContentView(this, R.layout.plain_activity)
 
-        binding.name = "Your name"
-        binding.lastName = "Your last name"
+        binding.viewmodel = viewModel
 
         // TODO: Explicitly setting initial values is a bad pattern. We'll fix that.
         //removed update name method since its not needed with binding
@@ -61,11 +59,7 @@ class PlainOldActivity : AppCompatActivity() {
      * This method is triggered by the `android:onclick` attribute in the layout. It puts business
      * logic in the activity, which is not ideal. We should do something about that.
      */
-    //method increments the amount of likes
-    fun onLike(view: View) {
-        viewModel.onLike()
-        updateLikes()
-    }
+    //on like method now derived from the view model
 
     /**
      * So much findViewById! We'll fix that with Data Binding.
