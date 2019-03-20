@@ -19,16 +19,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--data tag is where you put layout variables-->
     <data>
-
+        //variables defined here with their type
+        <variable name="name" type="String"/>
+        <variable name="lastName" type="String"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--Expressions declared with {} and reference variable in data tag -->
         <TextView
             android:id="@+id/plain_name"
+            android:text="@{name}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="128dp"
@@ -41,6 +46,7 @@
 
         <TextView
             android:id="@+id/plain_lastname"
+            android:text="@{lastName}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="128dp"
