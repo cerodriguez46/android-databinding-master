@@ -27,7 +27,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import com.example.android.databinding.basicsample.R
-import com.example.android.databinding.basicsample.data.Popularity
 import com.example.android.databinding.basicsample.data.SimpleViewModel
 
 object BindingAdapters {
@@ -93,15 +92,15 @@ object BindingAdapters {
         }
     }
 
-    private fun getDrawablePopularity(popularity: Popularity, context: Context): Drawable? {
+    private fun getDrawablePopularity(popularity: SimpleViewModel.Popularity, context: Context): Drawable? {
         return when (popularity) {
-            Popularity.NORMAL -> {
+            SimpleViewModel.Popularity.NORMAL -> {
                 ContextCompat.getDrawable(context, R.drawable.ic_person_black_96dp)
             }
-            Popularity.POPULAR -> {
+            SimpleViewModel.Popularity.POPULAR -> {
                 ContextCompat.getDrawable(context, R.drawable.ic_whatshot_black_96dp)
             }
-            Popularity.STAR -> {
+            SimpleViewModel.Popularity.STAR -> {
                 ContextCompat.getDrawable(context, R.drawable.ic_whatshot_black_96dp)
             }
         }
